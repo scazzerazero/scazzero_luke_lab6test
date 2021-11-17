@@ -8,16 +8,14 @@ class LEDdisplay():
   'Class for controlling a 7-segment LED display'
 
   numbers = [ 
-    0b11111100, # 0
-    0b01100000, # 1
-    0b11011010, # 2
-    0b11110010, # 3
-    0b01100110, # 4
-    0b10110110, # 5
-    0b10111110, # 6
-    0b11100000, # 7
-    0b11111110, # 8
-    0b11100110] # 9
+    0b10000000, # 0
+    0b01000000, # 1
+    0b00100000, # 2
+    0b00010000, # 3
+    0b00001000, # 4
+    0b00000100, # 5
+    0b00000010, # 6
+    0b00000001,] # 7
 
   def __init__(self, data, latch, clock):
     self.shifter = Shifter(data, latch, clock)
