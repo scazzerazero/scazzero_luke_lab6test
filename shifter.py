@@ -21,14 +21,14 @@ class Shifter():
 
   def shiftByte(self, byteVal):  # display a given byte pattern
     for i in range(8):           # 8 bits in register
-      GPIO.output(self.dataPin, ~(byteVal & (1<<i)))  # if common anode
-      #GPIO.output(self.dataPin, byteVal & (1<<i))    # if common cathode
+      #GPIO.output(self.dataPin, ~(byteVal & (1<<i)))  # if common anode
+      GPIO.output(self.dataPin, byteVal & (1<<i))    # if common cathode
       self.ping(self.clockPin)
-      self.ping(self.latchPin) # GET rid of
+      #self.ping(self.latchPin) # GET rid of
 
-  #def latch(self):
-  #  self.ping(self.latchPin)
-  #  print("pinging latch pin!")
+  def latch(self):
+    self.ping(self.latchPin)
+    print("pinging latch pin!")
     
 '''To fix this for your lab code, my suggestion is to remove the latch step from shiftByte, and add a new method to Shifter called latch that will perform the latching function.  Then in your main code (or whatever code is calling shiftByte), call latch immediately after calling shiftByte twice.  This way you will only latch the registers after both bytes have been loaded.  This should eliminate strange flickering issues that some of you were seeing in class yesterday, and make your firefly output look much nicer in the lab.'''
 
