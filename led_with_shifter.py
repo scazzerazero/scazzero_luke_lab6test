@@ -8,7 +8,7 @@ import RPi.GPIO as GPIO #for cleanup()
 # to define the GPIO pins, since LEDdisplay is
 # pin-agnostic).
 
-dataPin, latchPin, clockPin = 23, 24, 25
+dataPin, latchPin, clockPin = 23, 24, 25 #input data, send data, load data
 
 # Pick a number sequence
 sequence = [8, 6, 7, 5, 3, 0, 9]
