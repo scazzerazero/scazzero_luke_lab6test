@@ -21,7 +21,7 @@ class LEDdisplay():
     self.shifter = Shifter(data, latch, clock)
  
   def setNumber(self, num):  # display a given number
-    row = 2 #change this value to pick which row the pattern appears on 
+    row = 3 #change this value to pick which row the pattern appears on 
     self.shifter.shiftByte(LEDdisplay.numbers[num])#load the row values
     self.shifter.shiftByte(1<<(row-1)) #select the given row
     self.shifter.latch()
