@@ -11,7 +11,7 @@ import RPi.GPIO as GPIO #for cleanup()
 dataPin, latchPin, clockPin = 23, 24, 25 #input data, send data, load data
 
 # Pick a number sequence
-sequence = [1, 2, 3, 4, 5, 6, 7,6, 5, 4, 3, 2]
+sequence = [0, 1, 2, 3, 4, 5, 6, 7,6, 5, 4, 3, 2, 1]
 
 theLEDdisplay= LEDdisplay(dataPin, latchPin, clockPin)
 
