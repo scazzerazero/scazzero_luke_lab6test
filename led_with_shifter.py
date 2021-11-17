@@ -1,5 +1,6 @@
 import time
 from led_display import LEDdisplay
+import RPi.GPIO as GPIO #for cleanup()
 
 # Simple demonstration of the LEDdisplay class.
 # Note that we don't need RPi.GPIO here since all the I/O
@@ -15,6 +16,11 @@ sequence = [8, 6, 7, 5, 3, 0, 9]
 theLEDdisplay= LEDdisplay(dataPin, latchPin, clockPin)
 
 while True:
-  for n in range(len(sequence)):
-    theLEDdisplay.setNumber(sequence[n])
-    time.sleep(0.4)
+  try:
+    for n in range(len(sequence)):
+      theLEDdisplay.setNumber(sequence[n])
+      time.sleep(0.4)
+  except KeyboardInterrupt:
+    print("\nExiting!")
+    GPIO.cleanup()
+    break
