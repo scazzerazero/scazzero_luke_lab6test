@@ -19,7 +19,7 @@ while True:
   try:
     for n in range(len(sequence)):
       theLEDdisplay.setNumber(sequence[n])
-      time.sleep(0.4)
+      time.sleep(0.2)
   except KeyboardInterrupt:
     print("\nExiting!")
     GPIO.cleanup()
